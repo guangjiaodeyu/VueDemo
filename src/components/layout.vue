@@ -38,7 +38,29 @@
 export default {
   data () {
     return {
-
+      isShowAboutDialog: false,
+      isShowLogDialog: false,
+      isShowRegDialog: false,
+      username: ''
+    }
+  },
+  methods: {
+    aboutClick () {
+      this.isShowAboutDialog = true
+    },
+    logClick () {
+      this.isShowLogDialog = true
+    },
+    regClick () {
+      this.isShowRegDialog = true
+    },
+    closeDialog (attr) {
+      this[attr] = false
+    },
+    onSuccessLog (data) {
+      console.log(data)
+      this.closeDialog ('isShowLogDialog')
+      this.username = data.username
     }
   }
 }
