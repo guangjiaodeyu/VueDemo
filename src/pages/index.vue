@@ -198,7 +198,7 @@
     },
     methods:{
         dosomethingonslidechange(){
-          console.log('dosomethingonslidechange run!');
+
         }
     }
   }
