@@ -52,6 +52,9 @@
           </div>
         </div>
       </div>-->
+      <slide-show :slides="slides" :inv="slideSpeed" @onchange="dosomethingonslidechange"></slide-show>
+
+
       <div class="index-board-list">
         <div class="index-board-item"
              v-for="(item , index) in boardList"
@@ -70,8 +73,14 @@
   </div>
 </template>
 
+
 <script>
+  import slideShow from '../components/slideshow.vue'
+
   export default {
+    components:{
+      slideShow
+    },
     created:function () {
       this.$http.get('api/getNewsList')    //导入vue-resource后就可以使用this.$http
         .then( res => {
@@ -82,6 +91,29 @@
     },
     data () {
       return {
+        slideSpeed: 2000,
+        slides: [
+          {
+            src: require('../assets/slideShow/pic1.jpg'),
+            title: 'xxx1',
+            href: 'detail/analysis'
+          },
+          {
+            src: require('../assets/slideShow/pic2.jpg'),
+            title: 'xxx2',
+            href: 'detail/count'
+          },
+          {
+            src: require('../assets/slideShow/pic3.jpg'),
+            title: 'xxx3',
+            href: 'http://xxx.xxx.com'
+          },
+          {
+            src: require('../assets/slideShow/pic4.jpg'),
+            title: 'xxx4',
+            href: 'detail/forecast'
+          }
+        ],
         productList:{
           pc:{
             title:'pc产品',
@@ -163,6 +195,11 @@
           }
         ]
       }
+    },
+    methods:{
+        dosomethingonslidechange(){
+          console.log('dosomethingonslidechange run!');
+        }
     }
   }
 </script>
