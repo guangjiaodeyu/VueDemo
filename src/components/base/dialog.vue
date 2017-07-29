@@ -2,10 +2,13 @@
   <div>
       <div class="dialog-wrap">
         <div class="dialog-cover" v-if="isShow" @click="closeMyself"></div>
-        <div class="dialog-content" v-if="isShow">
-          <div class="dialog-close" @click="closeMyself">x</div>
-          <slot>empty</slot>
-        </div>
+        <transition name="drop">
+          <div class="dialog-content" v-if="isShow">
+            <div class="dialog-close" @click="closeMyself">x</div>
+            <slot>empty</slot>
+          </div>
+        </transition>
+
       </div>
   </div>
 </template>
