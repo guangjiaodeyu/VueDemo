@@ -1,29 +1,11 @@
 <template>
 
- <!-- <div class="detail-wrap">
-    <div class="detail-left">
-      <div class="product-board">
-        <img :src="productIcon">
-        <ul>
-          <router-link v-for="item in products" :to="{ path: item.path }" tag="li" active-class="active">
-            {{ item.name }}
-          </router-link>
-        </ul>
-      </div>
-    </div>
-    <div class="detail-right">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </div>
-  </div>-->
-
   <div class="detail-wrap">
     <div class="detail-left">
       <div class="product-board">
-        <img src="../assets/images/1.png" alt="">
+        <img :src="productIcon" alt="">
         <ul>
-          <li v-for="item in products">{{ item.name }}</li>
+          <router-link v-for="(item, index) in products" :key="index" :to="{ path: item.path}" tag="li" active-class="active">{{ item.name }}</router-link>
         </ul>
       </div>
     </div>
@@ -70,6 +52,11 @@
             '/detail/analysis': require("../assets/images/3.png"),
             '/detail/publish': require("../assets/images/4.png")
           }
+        }
+    },
+    computed:{
+        productIcon (){
+            return this.imgMap[this.$route.path]
         }
     }
   }

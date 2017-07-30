@@ -23,6 +23,7 @@ let router = new VueRouter({
     {
       path:'/detail',
       component:DetailPage,
+      redirect:'/detail/count', //重定向，detail只作为一个过渡
       children:[
         {
           path: 'analysis',

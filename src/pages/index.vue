@@ -37,7 +37,7 @@
     <div class="index-right">
 
 
-      <slide-show :slides="slides" :inv="slideSpeed" @onchange="dosomethingonslidechange"></slide-show>
+      <slide-show :slides="slides" :inv="slideSpeed"></slide-show>
 
 
       <div class="index-board-list">
@@ -48,7 +48,9 @@
             <H2>{{item.title}}</H2>
             <p>{{item.description}}</p>
             <div class="index-board-button">
-              <a href="" class="button">立即购买</a>
+              <!--<a href="" class="button">立即购买</a>-->
+              <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
+
             </div>
           </div>
         </div>
@@ -182,9 +184,7 @@
       }
     },
     methods:{
-        dosomethingonslidechange(){
 
-        }
     }
   }
 </script>
