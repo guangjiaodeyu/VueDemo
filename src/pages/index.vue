@@ -36,22 +36,7 @@
 
     <div class="index-right">
 
-      <!--<slide-show :slides="slides" :inv="invTime"></slide-show>
 
-      <div class="index-board-list">
-        <div
-          class="index-board-item"
-          v-for="(item, index) in boardList"
-          :class="[{'line-last' : index % 2 !== 0}, 'index-board-' + item.id]">
-          <div class="index-board-item-inner" >
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.description }}</p>
-            <div class="index-board-button">
-              <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
-            </div>
-          </div>
-        </div>
-      </div>-->
       <slide-show :slides="slides" :inv="slideSpeed" @onchange="dosomethingonslidechange"></slide-show>
 
 
